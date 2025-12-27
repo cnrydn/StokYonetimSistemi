@@ -1,7 +1,14 @@
-STOK YÖNETİM SİSTEMİ
+
+Ad Soyad: Caner Aydın
+Numara: 243405021 
 
 GitHub:
 https://github.com/cnrydn/Proje
+
+------------------------------------------------
+------------------------------------------------
+
+STOK YÖNETİM SİSTEMİ
 
 Bu proje Java Swing kullanılarak geliştirilmiş,
 MySQL veritabanı ile çalışan bir stok yönetim sistemidir.
@@ -57,5 +64,7 @@ StokYonetimSistemi/
 ÇALIŞTIRMA
 ------------------------------------------------
 - Eclipse üzerinden LoginFrame sınıfı çalıştırılır.
-- MySQL bağlantısının açık olması gerekir.  
+- MySQL bağlantısının açık olması gerekir.
+------------------------------------------------
+------------------------------------------------
 
