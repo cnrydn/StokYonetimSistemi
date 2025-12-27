@@ -24,7 +24,6 @@ PROJE ÖZELLİKLERİ
 - Ürün silme
 - Stok artırma
 - Stok eksiltme
-
 - Arama işlemi
 - Kritik stok uyarısı (renklendirme)
 
