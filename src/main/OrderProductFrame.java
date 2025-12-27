@@ -1,0 +1,74 @@
+package main;
+
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+import java.awt.*;
+
+public class OrderProductFrame extends JFrame {
+
+    private static final long serialVersionUID = 1L;
+    private JTable table;
+    private DefaultTableModel model;
+    private ProductDAO dao = new ProductDAO();
+
+    public OrderProductFrame() {
+        setTitle("Stok Eksilt");
+        setSize(650, 450);
+        setLocationRelativeTo(null);
+
+        model = new DefaultTableModel(
+                new String[]{"ID", "Ürün", "Miktar"}, 0);
+
+        table = new JTable(model);
+        refreshTable();
+
+        JButton btnOrder = new JButton("Eksilt");
+
+        btnOrder.addActionListener(e -> {
+            int row = table.getSelectedRow();
+            if (row < 0) {
+                JOptionPane.showMessageDialog(this, "Lütfen bir ürün seçiniz!");
+                return;
+            }
+
+            int id = Integer.parseInt(model.getValueAt(row, 0).toString());
+
+            String input = JOptionPane.showInputDialog("Eksiltilecek miktar:");
+            if (input == null) return;
+
+            try {
+                int qty = Integer.parseInt(input);
+
+                if (qty <= 0) {
+                    JOptionPane.showMessageDialog(this, "Lütfen pozitif bir sayı girin!");
+                    return;
+                }
+
+                if (!dao.orderProduct(id, qty)) {
+                    JOptionPane.showMessageDialog(this, "Yetersiz stok!");
+                } else {
+                    JOptionPane.showMessageDialog(this, "Stok başarıyla eksiltildi.");
+                }
+
+                refreshTable();
+
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(this, "Geçerli bir sayı giriniz!");
+            }
+        });
+
+
+        add(new JScrollPane(table), BorderLayout.CENTER);
+        add(btnOrder, BorderLayout.SOUTH);
+    }
+
+    private void refreshTable() {
+        model.setRowCount(0);
+        dao.getAllProducts().forEach(p ->
+                model.addRow(new Object[]{
+                        p.getId(), p.getName(), p.getQuantity()
+                })
+        );
+    }
+}
+
