@@ -9,14 +9,19 @@ import java.util.List;
 public class ListProductFrame extends JFrame {
 
     private static final long serialVersionUID = 1L;
+
     private JTable table;
     private DefaultTableModel model;
+    private JTextField txtSearch;
+
     private ProductDAO dao = new ProductDAO();
 
     public ListProductFrame() {
+
         setTitle("Ürün Listele");
-        setSize(650, 450);
+        setSize(700, 450);
         setLocationRelativeTo(null);
+        setLayout(new BorderLayout());
 
         model = new DefaultTableModel(
                 new String[]{"ID", "Ürün", "Miktar", "Fiyat"}, 0
@@ -38,7 +43,7 @@ public class ListProductFrame extends JFrame {
                 if (qty <= 10) {
                     c.setBackground(Color.PINK);
                 } else if (qty <= 50) {
-                    c.setBackground(new Color(255, 200, 150));
+                    c.setBackground(new Color(255, 220, 180));
                 } else {
                     c.setBackground(Color.WHITE);
                 }
@@ -51,17 +56,51 @@ public class ListProductFrame extends JFrame {
             }
         });
 
-        refreshTable();
-
         add(new JScrollPane(table), BorderLayout.CENTER);
+
+        JPanel searchPanel = new JPanel();
+
+        txtSearch = new JTextField(15);
+        JButton btnSearch = new JButton("Ara");
+        JButton btnClear = new JButton("Temizle");
+
+        searchPanel.add(new JLabel("Ürün Ara:"));
+        searchPanel.add(txtSearch);
+        searchPanel.add(btnSearch);
+        searchPanel.add(btnClear);
+
+        add(searchPanel, BorderLayout.SOUTH);
+
+        btnSearch.addActionListener(e -> {
+            String keyword = txtSearch.getText().trim();
+
+            if (keyword.isEmpty()) {
+                refreshTable();
+            } else {
+                fillTable(dao.searchProduct(keyword));
+            }
+        });
+
+        btnClear.addActionListener(e -> {
+            txtSearch.setText("");
+            refreshTable();
+        });
+
+        refreshTable();
     }
 
     private void refreshTable() {
+        fillTable(dao.getAllProducts());
+    }
+
+    private void fillTable(List<Product> list) {
         model.setRowCount(0);
-        List<Product> list = dao.getAllProducts();
         for (Product p : list) {
             model.addRow(new Object[]{
-                    p.getId(), p.getName(), p.getQuantity(), p.getPrice()
+                    p.getId(),
+                    p.getName(),
+                    p.getQuantity(),
+                    p.getPrice()
             });
         }
     }

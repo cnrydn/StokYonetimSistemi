@@ -64,7 +64,7 @@ public class ProductDAO {
                 int currentStock = rs.getInt("quantity");
 
                 if (currentStock - orderQty < 0) {
-                    return false; // NEGATİF STOK ENGELİ
+                    return false;
                 }
 
                 try (PreparedStatement updatePs =
