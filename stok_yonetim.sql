@@ -28,4 +28,3 @@ INSERT INTO products (name, quantity, price) VALUES
 ('Mouse (Logitech)', 75, 750.00), 
 ('Mouse (Xiaomi)', 80, 600.00),
 ('Mouse (Philips)', 120, 500.00);
-

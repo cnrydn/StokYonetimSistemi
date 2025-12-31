@@ -5,9 +5,10 @@ Numara: 243405021
 GitHub:
 https://github.com/cnrydn/Proje
 
-------------------------------------------------
-------------------------------------------------
+Proje Tanıtım Videosu:
+https://github.com/cnrydn/Proje/releases
 
+------------------------------------------------
 STOK YÖNETİM SİSTEMİ
 
 Bu proje Java Swing kullanılarak geliştirilmiş,
@@ -15,7 +16,7 @@ MySQL veritabanı ile çalışan bir stok yönetim sistemidir.
 
 ------------------------------------------------
 KULLANILAN TEKNOLOJİLER
-------------------------------------------------
+
 - Java (JDK 17)
 - Java Swing (GUI)
 - MySQL
@@ -24,7 +25,7 @@ KULLANILAN TEKNOLOJİLER
 
 ------------------------------------------------
 PROJE ÖZELLİKLERİ
-------------------------------------------------
+
 - Ürün ekleme
 - Ürün listeleme
 - Ürün güncelleme
@@ -40,20 +41,20 @@ Kritik stok seviyeleri:
 
 ------------------------------------------------
 VERİTABANI KURULUMU
-------------------------------------------------
+
 1. MySQL çalıştırılır.
 2. stok_yonetim.sql dosyası çalıştırılır.
 3. stock_db isimli veritabanı oluşturulur.
 
 ------------------------------------------------
 GİRİŞ BİLGİLERİ
-------------------------------------------------
+
 Kullanıcı Adı: admin
 Şifre: 1234
 
 ------------------------------------------------
 PROJE YAPISI
-------------------------------------------------
+
 StokYonetimSistemi/
 - src/        : Java kaynak kodları
 - lib/        : MySQL JDBC Driver
@@ -62,9 +63,11 @@ StokYonetimSistemi/
 
 ------------------------------------------------
 ÇALIŞTIRMA
-------------------------------------------------
+
 - Eclipse üzerinden LoginFrame sınıfı çalıştırılır.
 - MySQL bağlantısının açık olması gerekir.
-------------------------------------------------
-------------------------------------------------
+
+
+
+
 
