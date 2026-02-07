@@ -1,13 +1,3 @@
-
-Ad Soyad: Caner Aydın
-Numara: 243405021 
-
-GitHub:
-https://github.com/cnrydn/Proje
-
-Proje Tanıtım Videosu:
-https://github.com/cnrydn/Proje/releases
-
 ------------------------------------------------
 STOK YÖNETİM SİSTEMİ
 
@@ -66,6 +56,7 @@ StokYonetimSistemi/
 
 - Eclipse üzerinden LoginFrame sınıfı çalıştırılır.
 - MySQL bağlantısının açık olması gerekir.
+
 
 
 
